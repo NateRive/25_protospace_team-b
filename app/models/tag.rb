@@ -1,5 +1,5 @@
 class Tag < ActiveRecord::Base
 
-  has_many :prototype, through: :prototype_tag
+  has_many :prototypes, through: :prototype_tag
 
 end
