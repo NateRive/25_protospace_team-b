@@ -5,6 +5,8 @@
 /log/*
 !/log/.keep
 /tmp
+schema.rb
+image
 =======
 *.rbc
 capybara-*.html
