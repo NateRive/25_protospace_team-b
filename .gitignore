@@ -6,7 +6,7 @@
 !/log/.keep
 /tmp
 schema.rb
-image
+images/
 =======
 *.rbc
 capybara-*.html
