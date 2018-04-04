@@ -6,7 +6,7 @@
         .col-md-12
           %h4 Title
           .proto-new-title
-
+            = f.text_field :title, required: true, autofocus: true, placeholder: "Input Title"
       .row
         .col-md-12
           %h4 Main Thumbnail
@@ -17,27 +17,28 @@
               = image.hidden_field :status, value: "main"
               :javascript
                 $(function(){
-                  $('Main Thumbnail').on('change', 'input[type="file"]', function(e) {
+                  $('form').on('change', 'input[type="file"]', function(e) {
                     var file = e.target.files[0],
                       reader = new FileReader(),
-                        $preview = $(".image");
-                          t = this
+                        $preview = $(".preview");
+                          t = this;
+                            if(file.type.indexOf("image")  0){
+                            return false;
                             }
-                              reader.onload = (function(file) {
-                                return function(e) {
-                                  $preview.empty();
-                                    $preview.append($('').attr({
-                                      src: e.target.result,
-                                      width: "150px",
-                                      class: "preview",
-                                      title: file.name
-                                      }));
-                                      };
-                                      })(file);
-
-                                      reader.readAsDataURL(file);
-                                      });
-                                      });
+                            reader.onload = (function(file) {
+                            return function(e) {
+                            $preview.empty();
+                            $preview.append($('
+                            %img').attr({src: e.target.result,
+                            width: "150px",
+                            class: "preview",
+                            title: file.name
+                            }));
+                            };
+                            })(file);
+                            reader.readAsDataURL(file);
+                            });
+                            });
 
         .col-md-12
           %h4 Sub Thumbnails
