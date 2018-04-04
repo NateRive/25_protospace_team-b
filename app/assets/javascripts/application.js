@@ -16,16 +16,16 @@
 //= require bootstrap
 //= require_tree .
 
-
+<script>
 $(function(){
-  
-  $('form').on('change', 'input[type="file"]', function(e) {
+
+  $('Main Thumbnail').on('change', 'input[type="file"]', function(e) {
     var file = e.target.files[0],
         reader = new FileReader(),
         $preview = $(".preview");
         t = this;
 
-    
+
     if(file.type.indexOf("image") < 0){
       return false;
     }
