@@ -341,7 +341,18 @@ body {
         font-weight: bold;
       }
     }
+    .likes-box {
+      // text-align: right;
+      #like-button {
+        height: 62px;
+        padding: 20px;
+      }
+    }
   }
+
+
+
+
 
   .proto-description {
     padding: 20px 0 10px;

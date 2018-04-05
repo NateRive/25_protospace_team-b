@@ -13,6 +13,20 @@
             = link_to "#{@prototype.user.name}", user_path(@prototype.user)
             .degree
               = @prototype.user.position
+    .col-md-6.clearfix
+      .likes-box
+        %button#like-button.btn.btn-default.decrement-button
+          -# %img{ alt: "画像なし", src: "https://i.pinimg.com/564x/f3/e2/35/f3e235602824c4c784146b9a3c662554.jpg"}/
+          %i.fa.fa-heart-o{"aria-hidden" => "true"}
+            = "&emsp;".html_safe + "like"
+          %span#like-sum.num 52
+        -# %ul.social-button-syncer
+        -#   %li.sc-tw
+        -#     %a.twitter-share-button{"data-count" => "vertical", "data-dnt" => "true", "data-lang" => "ja", "data-text" => "青春時代をもう一度、Class", "data-url" => "http://proto-space.com/prototypes/4", :href => "https://twitter.com/share"} ツイート
+        -#   %li.sc-fb
+        -#     .fb-like{"data-action" => "like", "data-href" => "http://proto-space.com/prototypes/4", "data-layout" => "box_count", "data-share" => "false", "data-show-faces" => "true"}
+
+
   .row
     .col-md-9.image-box
       = image_tag(@prototype.set_main_thumbnail.large, class: 'img-responsive img-size-fix', style: "margin: 0 auto;")
