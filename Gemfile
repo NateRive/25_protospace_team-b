@@ -27,3 +27,6 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
+
+gem 'paperclip', '~> 5.0'
+gem 'aws-sdk', '~> 2.3'
