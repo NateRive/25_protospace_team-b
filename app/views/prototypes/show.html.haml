@@ -38,3 +38,12 @@
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
   .form#new_comment.form_inline
+    %h4
+      Write a comment
+    .row
+      = form_for [@prototype, @comment] do |f|
+        .form-group.col-md-10
+          = f.text_area :content, placeholder: 'Your comments', class: "textform-control"
+        .form-group.col-md-2.float-left
+          = f.submit "COMMENT", class: "btn btn-primary"
+
