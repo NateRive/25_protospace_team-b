@@ -20,6 +20,8 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @comments = Comment.order('created_at Asc')
+    @comment = Comment.new
   end
 
   private
