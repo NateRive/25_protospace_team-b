@@ -19,7 +19,7 @@
 <script>
 $(function(){
 
-  $('Main Thumbnail').on('change', 'input[type="file"]', function(e) {
+  $('content').on('change', 'input[type="file"]', function(e) {
     var file = e.target.files[0],
         reader = new FileReader(),
         $preview = $(".preview");
