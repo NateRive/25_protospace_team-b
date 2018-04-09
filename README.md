@@ -20,7 +20,7 @@ has_many :prototypes, likes, comments
 ### association
 
 ```
-has_many :captured_images, comments, likes
+has_many :captured_images, comments, likes, tags, through: :prototype_tag
 belongs_to :user
 ```
 
@@ -68,5 +68,23 @@ belongs_to :user, :prototype
 - user_id
 - prototype_id
 
+## Tag
+### association
 
+```
+has_many :prototype, through: :prototype_tag
+```
+### table
+- content
+
+## PrototypeTag
+### association
+
+```
+belongs_to :prototype
+belongs_to :tag
+```
+### table
+- prototype_id
+- tag_id
 
