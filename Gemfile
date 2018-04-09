@@ -18,6 +18,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'kaminari'
 gem 'bootstrap', '~> 4.0.0'
+gem 'mini_mime'
 
 group :development, :test do
   gem 'byebug'
