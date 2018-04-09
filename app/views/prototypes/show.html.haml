@@ -44,6 +44,8 @@
           %a(href="#" title="thumbnail")
             = image_tag '', size: '64x64', class: "media-object"
         .media-body
+          %h4
+            = text.user.name
           %p
             = text.content
   .form#new_comment.form_inline
