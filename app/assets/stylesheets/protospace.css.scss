@@ -618,8 +618,18 @@ body {
   font-weight: 200;
 }
 
-.contents_delete{
+.contents_delete {
   padding: 20px 0 0 40px;
+}
+
+.proto-control {
+  float: right;
+  padding-right: 30px;
+}
+
+.color {
+  color: darkgray;
+
 }
 
 /* -- flash messages ------------------------------------ */
