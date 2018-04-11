@@ -612,6 +612,23 @@ body {
   font-weight: 200;
 }
 
+.media {
+  display: flex;
+  &-body {
+  }
+}
+
+.list-ui {
+  float: right;
+  padding-left: 10px;
+}
+
+.color {
+  font-size: 16px;
+  line-height: 100%;
+  color: gray;
+}
+
 
 /* -- flash messages ------------------------------------ */
 .alert {
