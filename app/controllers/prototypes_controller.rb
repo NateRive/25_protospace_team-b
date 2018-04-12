@@ -29,6 +29,10 @@ class PrototypesController < ApplicationController
     @prototype.destroy if @prototype.user_id == current_user.id
   end
 
+  def edit
+    @prptotype = Prototype.find(params[:id])
+  end
+
   private
 
   def set_prototype

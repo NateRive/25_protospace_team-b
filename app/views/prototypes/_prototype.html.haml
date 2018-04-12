@@ -6,7 +6,8 @@
         = prototype.title
       .proto-control
         - if user_signed_in? && current_user.id == prototype.user_id
-          %i.fas.fa-edit
+          = link_to "/prototypes/#{prototype.id}/edit", method: :get do
+            %i.fas.fa-edit
           = link_to "/prototypes/#{prototype.id}", method: :delete, data: {confirm: :'本当に削除しますか？'} do
             %i.fas.fa-trash-alt
       .proto-meta
