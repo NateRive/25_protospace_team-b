@@ -297,6 +297,12 @@ body {
   h3 {
     margin: 0;
     font-size: 1.6rem;
+    display: inline-block;
+  }
+
+  .proto-delete {
+    display: inline-block;
+    float: right;
   }
 
   .proto-meta {
@@ -623,6 +629,19 @@ body {
   font-weight: 200;
 }
 
+.contents_delete {
+  padding: 20px 0 0 40px;
+}
+
+.proto-control {
+  float: right;
+  padding-right: 30px;
+}
+
+.color {
+  color: darkgray;
+
+}
 
 /* -- flash messages ------------------------------------ */
 .alert {

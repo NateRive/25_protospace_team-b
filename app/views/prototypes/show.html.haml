@@ -1,5 +1,10 @@
 .container.proto-page
   %header.row.user-nav
+    .proto-control
+      - if user_signed_in? && current_user.id == @prototype.user_id
+        %i.fas.fa-edit
+        = link_to "/prototypes/#{@prototype.id}", method: :delete, data: {confirm: :'本当に削除しますか？'} do
+          %i.fas.fa-trash-alt.color
     .col-md-6
       .media
         .media-left
@@ -50,3 +55,22 @@
           %a{href: "#", class: "btn btn-default"} iPad
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
+  #comment_list
+    - @comments.each do |text|
+      .media
+        .media-left
+          %a(href="#" title="thumbnail")
+            = image_tag '', size: '64x64', class: "media-object"
+        .media-body
+          %p
+            = text.content
+  .form#new_comment.form_inline
+    %h4
+      Write a comment
+    .row
+      = form_for [@prototype, @comment] do |f|
+        .form-group.col-md-10
+          = f.text_area :content, placeholder: 'Your comments', id: "comment_text", class: "textform-control"
+        .form-group.col-md-2
+          = f.submit "COMMENT", class: "btn btn-primary"
+
