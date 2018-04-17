@@ -21,8 +21,11 @@
     .col-md-6.clearfix
       .likes-box
         %button#like-button.btn.btn-default.decrement-button
-          %i.fa.fa-heart-o{"aria-hidden" => "true"}
-            = "&emsp;".html_safe + "like"
+          - if @like == true
+            %i.fa.fa-heart.like-clicked{"aria-hidden" => "true", data: { likeid: @like_id }}
+          - else @like == false
+            %i.fa.fa-heart{"aria-hidden" => "true"}
+          = "&emsp;".html_safe + "like"
           %span#like-sum.num= @likes_number
         -# %ul.social-button-syncer
         -#   %li.sc-tw
@@ -73,4 +76,3 @@
           = f.text_area :content, placeholder: 'Your comments', id: "comment_text", class: "textform-control"
         .form-group.col-md-2
           = f.submit "COMMENT", class: "btn btn-primary"
-

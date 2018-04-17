@@ -352,6 +352,9 @@ body {
       #like-button {
         height: 62px;
         padding: 20px;
+        .like-clicked {
+          color: red;
+        }
       }
     }
   }

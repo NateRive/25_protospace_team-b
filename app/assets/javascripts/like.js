@@ -1,6 +1,7 @@
 $(function() {
+  var likeId = $(".fa-heart").data("likeid");
   $("#like-button").click(function() {
-    if ($(this).hasClass("clicked")) {
+    if ($(this).find("i").hasClass("like-clicked")) {
       var url = window.location.href + "/likes/" + likeId
       $.ajax({
         url: url,
@@ -11,7 +12,7 @@ $(function() {
       .done(function(data) {
         var likes_number = $("#like-sum").text();
         $("#like-sum").text(Number(likes_number) - 1);
-        $("#like-button").removeClass("clicked");
+        $("#like-button").find("i").removeClass("like-clicked");
       })
       .fail(function(data) {
         alert("failed to delete likes");
@@ -28,7 +29,7 @@ $(function() {
         var likesNumber = $("#like-sum").text();
         likeId = data.id
         $("#like-sum").text(Number(likesNumber) + 1);
-        $("#like-button").addClass("clicked");
+        $("#like-button").find("i").addClass("like-clicked");
       })
       .fail(function(data) {
         alert("errors");
