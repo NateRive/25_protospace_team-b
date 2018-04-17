@@ -10,7 +10,7 @@ $(function(){
                     %p
                       ${comment.content}
                </div>`
-      $('body').scrollTop({}
+      $('body').scrollTop()
     return html;
   }
   $('.btn-primary').on('submit', function(e){
