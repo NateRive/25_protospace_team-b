@@ -16,10 +16,9 @@
     .col-md-6.clearfix
       .likes-box
         %button#like-button.btn.btn-default.decrement-button
-          -# %img{ alt: "画像なし", src: "https://i.pinimg.com/564x/f3/e2/35/f3e235602824c4c784146b9a3c662554.jpg"}/
           %i.fa.fa-heart-o{"aria-hidden" => "true"}
             = "&emsp;".html_safe + "like"
-          %span#like-sum.num 52
+          %span#like-sum.num= @likes_number
         -# %ul.social-button-syncer
         -#   %li.sc-tw
         -#     %a.twitter-share-button{"data-count" => "vertical", "data-dnt" => "true", "data-lang" => "ja", "data-text" => "青春時代をもう一度、Class", "data-url" => "http://proto-space.com/prototypes/4", :href => "https://twitter.com/share"} ツイート
