@@ -634,6 +634,23 @@ body {
   font-weight: 200;
 }
 
+.media {
+  display: flex;
+  &-body {
+  }
+}
+
+.list-ui {
+  float: right;
+  padding-left: 10px;
+}
+
+.color {
+  font-size: 16px;
+  line-height: 100%;
+  color: gray;
+}
+
 .contents_delete {
   padding: 20px 0 0 40px;
 }
@@ -643,10 +660,6 @@ body {
   padding-right: 30px;
 }
 
-.color {
-  color: darkgray;
-
-}
 
 /* -- flash messages ------------------------------------ */
 .alert {

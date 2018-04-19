@@ -59,20 +59,32 @@
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
   #comment_list
-    - @comments.each do |text|
-      .media
-        .media-left
-          %a(href="#" title="thumbnail")
-            = image_tag '', size: '64x64', class: "media-object"
-        .media-body
-          %p
-            = text.content
+    - if @comments
+      - @comments.each do |text|
+        .media
+          .media-left
+            %a(href="#{user_path(text.user.id)}" title="thumbnail")
+              = image_tag "#{text.user.avatar}", size: '64x64', class: "media-object"
+          .media-body
+            %h4
+              = text.user.name
+            %p
+              = text.content
+            .list-ui{style: "list-style:none;"}
+              = link_to prototype_comment_path(text), method: :patch do
+                %i.fa.fa-trash.color
+            .list-ui{style: "list-style:none;"}
+              = link_to edit_prototype_comment_path(text) do
+                %i.fa.fa-edit.color
   .form#new_comment.form_inline
-    %h4
-      Write a comment
-    .row
-      = form_for [@prototype, @comment] do |f|
-        .form-group.col-md-10
-          = f.text_area :content, placeholder: 'Your comments', id: "comment_text", class: "textform-control"
-        .form-group.col-md-2
-          = f.submit "COMMENT", class: "btn btn-primary"
+
+    - if user_signed_in?
+      %h4
+        Write a comment
+      .row
+        = form_for [@prototype, @comment] do |f|
+          .form-group.col-md-10
+            = f.text_area :content, placeholder: 'Your comments', id: "comment_text", class: "textform-control"
+          .form-group.col-md-2
+            = f.submit "COMMENT"
+
