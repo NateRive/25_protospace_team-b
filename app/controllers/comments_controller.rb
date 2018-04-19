@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   def create
 
     @comment = Comment.create(comment_params)
-    binding.pry
     @group = Prototype.find(params[:prototype_id])
 
     respond_to do |format|

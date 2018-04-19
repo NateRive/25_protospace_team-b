@@ -55,13 +55,13 @@
             .list-ui{style: "list-style:none;"}
               = link_to edit_prototype_comment_path(prototype_id: params[:id], id: text.id) do
                 %i.fa.fa-edit.color
-    .form#new_comment.form_inline
-      - if user_signed_in?
-        %h4
-          Write a comment
-        .row
-          = form_for [@prototype, @comment] do |f|
-            .form-group.col-md-10
-              = f.text_area :content, placeholder: 'Your comments', id: "comment_text", class: "textform-control"
-            .form-group.col-md-2
-              = f.submit "COMMENT"
+  .form#new_comment.form_inline
+    - if user_signed_in?
+      %h4
+        Write a comment
+      .row
+        = form_for [@prototype, @comment] do |f|
+          .form-group.col-md-10
+            = f.text_area :content, placeholder: 'Your comments', id: "comment_text", class: "textform-control"
+          .form-group.col-md-2
+            = f.submit "COMMENT"
