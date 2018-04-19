@@ -42,16 +42,18 @@ $(function(){
   }
   $('#new_comment').on('submit', function(e){
     e.preventDefault();
-    var formData = new FormData($(this));
-    console.log(formData);
+    // var formData = new FormData($(this));
+    var content = $("#comment_text").val();
     var href = window.location.href + '/comments'
     $.ajax({
       url: href,
       type: "POST",
-      data: formData,
+      data: {
+        content: content
+      },
       dataType: 'json',
-      processData: false,
-      contentType: false
+      // processData: false,
+      // contentType: false
     })
     .done(function(data){
       var html = buildHTML(data);

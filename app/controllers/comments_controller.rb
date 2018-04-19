@@ -2,10 +2,12 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
 
   def create
+
     @comment = Comment.create(comment_params)
-    @group = Prototype.find(params[:prototype_id])
     binding.pry
-      respond_to do |format|
+    @group = Prototype.find(params[:prototype_id])
+
+    respond_to do |format|
       format.html { redirect_to prototype_path(@group)  }
       format.json
     end
@@ -41,7 +43,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content).merge(prototype_id: params[:prototype_id], user_id: current_user.id)
+    params.permit(:content).merge(prototype_id: params[:prototype_id], user_id: current_user.id)
   end
 
 end

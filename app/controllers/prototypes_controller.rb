@@ -20,7 +20,7 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @comments = Comment.order('created_at Asc')
+    @comments = Comment.order('created_at ASC')
     @comment = Comment.new
   end
 
