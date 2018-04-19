@@ -14,7 +14,7 @@ $(function(){
       <div class='media'>
         <div class='media-left'>
           <a href='/users/${comment.user_id}' title='thumbnail'>
-            <img class="media-object" src="${comment.avatar}" alt="Noimage" width="64" height="64"/>
+            <img class="media-object" src="${comment.avatar.url}" alt="Noimage" width="64" height="64"/>
           </a>
         </div>
         <div class='media-body'>
@@ -56,6 +56,7 @@ $(function(){
       // contentType: false
     })
     .done(function(data){
+      // debugger;
       var html = buildHTML(data);
       $('#comment_list').append(html);
       // $('#new_comment')[0].reset();
