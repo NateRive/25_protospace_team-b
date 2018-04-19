@@ -3,8 +3,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
+    @group = Prototype.find(params[:prototype_id])
+    binding.pry
       respond_to do |format|
-      format.html { redirect_to prototype_path(id: current_user.id)  }
+      format.html { redirect_to prototype_path(@group)  }
       format.json
     end
   end

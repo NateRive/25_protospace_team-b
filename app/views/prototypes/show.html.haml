@@ -49,10 +49,10 @@
               = text.user.name
             %p
               = text.content
-            .list-ui{style: "list-style:none"}
+            .list-ui{style: "list-style:none;"}
               = link_to prototype_comment_path(prototype_id: params[:id], id: text.id), method: :delete do
                 %i.fa.fa-trash.color
-            .list-ui{style: "list-style:none"}
+            .list-ui{style: "list-style:none;"}
               = link_to edit_prototype_comment_path(prototype_id: params[:id], id: text.id) do
                 %i.fa.fa-edit.color
     .form#new_comment.form_inline
@@ -64,5 +64,4 @@
             .form-group.col-md-10
               = f.text_area :content, placeholder: 'Your comments', id: "comment_text", class: "textform-control"
             .form-group.col-md-2
-              = f.submit "COMMENT", class: "btn btn-primary"
-
+              = f.submit "COMMENT"

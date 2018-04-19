@@ -1,21 +1,49 @@
 $(function(){
   function buildHTML(comment){
-    var html = `<div class="media">
-                  <div class="media-left">
-                    <a href="#" title="thumbnail">
-                      <img src='', size: '64x64', class="media-object">
-                    </a>
-                  </div>
-                  .media-body
-                    %p
-                      ${comment.content}
-               </div>`
+    // var html = `<div class="media">
+    //               <div class="media-left">
+    //                 <a href="#" title="thumbnail">
+    //                   <img src='${comment.avatar}', size: '64x64', class="media-object">
+    //                 </a>
+    //               </div>
+    //               .media-body
+    //                 %p
+    //                   ${comment.content}
+    //            </div>`
+      var html = `
+      <div class='media'>
+        <div class='media-left'>
+          <a href='/users/${comment.user_id}' title='thumbnail'>
+            <img class="media-object" src="/uploads/noimage.png" alt="Noimage" width="64" height="64"/>
+          </a>
+        </div>
+        <div class='media-body'>
+          <h4>
+            ${comment.name}
+          </h4>
+          <p>
+            ${comment.content}
+          </p>
+          <div class='list-ui' style='list-style:none'>
+            <a rel="nofollow" data-method="delete" href="/prototypes/18/comments/${comment.id}" method = "delete">
+              <i class='fa fa-trash color'></i>
+            </a>
+          </div>
+          <div class='list-ui' style='list-style:none'>
+            <a href="/prototypes/18/comments/${comment.id}/edit" method= "patch">
+              <i class='fa fa-edit color'></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      `
       $('body').scrollTop()
     return html;
   }
-  $('.btn-primary').on('submit', function(e){
+  $('#new_comment').on('submit', function(e){
     e.preventDefault();
-    var formData = new FormData(this);
+    var formData = new FormData($(this));
+    console.log(formData);
     var href = window.location.href + '/comments'
     $.ajax({
       url: href,
@@ -27,11 +55,11 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.comments').append(html)
-      $('.btn-primary').val('')
-    .fail(function(){
-      alert('error');
+      $('#comment_list').append(html);
+      $('#new_comment')[0].reset();
     })
+    .fail(function(data){
+      alert('error');
     })
   })
 });
