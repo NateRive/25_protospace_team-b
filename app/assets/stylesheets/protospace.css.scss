@@ -297,6 +297,12 @@ body {
   h3 {
     margin: 0;
     font-size: 1.6rem;
+    display: inline-block;
+  }
+
+  .proto-delete {
+    display: inline-block;
+    float: right;
   }
 
   .proto-meta {
@@ -341,7 +347,21 @@ body {
         font-weight: bold;
       }
     }
+    .likes-box {
+      text-align: right;
+      #like-button {
+        height: 62px;
+        padding: 20px;
+        .like-clicked {
+          color: red;
+        }
+      }
+    }
   }
+
+
+
+
 
   .proto-description {
     padding: 20px 0 10px;
@@ -415,7 +435,8 @@ body {
 
   .cover-image-upload {
     background: image-url("noimage-big.png") #fff no-repeat center center;
-    height: 500px;
+    height: 500px; 
+    width:690px;
     position: relative;
     margin-bottom: 20px;
 
@@ -439,6 +460,7 @@ body {
     .image-upload {
       background: image-url("noimage.png") #fff no-repeat center center;
       height: 200px;
+      max-width: 100%;
       position: relative;
 
       input {
@@ -627,6 +649,15 @@ body {
   font-size: 16px;
   line-height: 100%;
   color: gray;
+}
+
+.contents_delete {
+  padding: 20px 0 0 40px;
+}
+
+.proto-control {
+  float: right;
+  padding-right: 30px;
 }
 
 

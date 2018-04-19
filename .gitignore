@@ -5,8 +5,6 @@
 /log/*
 !/log/.keep
 /tmp
-schema.rb
-images/
 =======
 *.rbc
 capybara-*.html
@@ -43,3 +41,5 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
+
+Gemfile.lock

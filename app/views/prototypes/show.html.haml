@@ -1,5 +1,10 @@
 .container.proto-page
   %header.row.user-nav
+    .proto-control
+      - if user_signed_in? && current_user.id == @prototype.user_id
+        %i.fas.fa-edit
+        = link_to "/prototypes/#{@prototype.id}", method: :delete, data: {confirm: :'本当に削除しますか？'} do
+          %i.fas.fa-trash-alt.color
     .col-md-6
       .media
         .media-left
@@ -13,6 +18,22 @@
             = link_to "#{@prototype.user.name}", user_path(@prototype.user)
             .degree
               = @prototype.user.position
+    .col-md-6.clearfix
+      .likes-box
+        %button#like-button.btn.btn-default.decrement-button
+          - if @like == true
+            %i.fa.fa-heart.like-clicked{"aria-hidden" => "true", data: { likeid: @like_id }}
+          - else @like == false
+            %i.fa.fa-heart{"aria-hidden" => "true"}
+          = "&emsp;".html_safe + "like"
+          %span#like-sum.num= @likes_number
+        -# %ul.social-button-syncer
+        -#   %li.sc-tw
+        -#     %a.twitter-share-button{"data-count" => "vertical", "data-dnt" => "true", "data-lang" => "ja", "data-text" => "青春時代をもう一度、Class", "data-url" => "http://proto-space.com/prototypes/4", :href => "https://twitter.com/share"} ツイート
+        -#   %li.sc-fb
+        -#     .fb-like{"data-action" => "like", "data-href" => "http://proto-space.com/prototypes/4", "data-layout" => "box_count", "data-share" => "false", "data-show-faces" => "true"}
+
+
   .row
     .col-md-9.image-box
       = image_tag(@prototype.set_main_thumbnail.large, class: 'img-responsive img-size-fix', style: "margin: 0 auto;")
@@ -56,6 +77,7 @@
               = link_to edit_prototype_comment_path(prototype_id: params[:id], id: text.id) do
                 %i.fa.fa-edit.color
   .form#new_comment.form_inline
+
     - if user_signed_in?
       %h4
         Write a comment
@@ -65,3 +87,4 @@
             = f.text_area :content, placeholder: 'Your comments', id: "comment_text", class: "textform-control"
           .form-group.col-md-2
             = f.submit "COMMENT"
+
