@@ -2,10 +2,8 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
 
   def create
-
     @comment = Comment.create(comment_params)
     @group = Prototype.find(params[:prototype_id])
-
     respond_to do |format|
       format.html { redirect_to prototype_path(@group)  }
       format.json

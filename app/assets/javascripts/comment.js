@@ -1,15 +1,5 @@
 $(function(){
   function buildHTML(comment){
-    // var html = `<div class="media">
-    //               <div class="media-left">
-    //                 <a href="#" title="thumbnail">
-    //                   <img src='${comment.avatar}', size: '64x64', class="media-object">
-    //                 </a>
-    //               </div>
-    //               .media-body
-    //                 %p
-    //                   ${comment.content}
-    //            </div>`
       var html = `
       <div class='media'>
         <div class='media-left'>

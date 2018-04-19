@@ -71,10 +71,10 @@
             %p
               = text.content
             .list-ui{style: "list-style:none;"}
-              = link_to prototype_comment_path(prototype_id: params[:id], id: text.id), method: :delete do
+              = link_to prototype_comment_path(text), method: :patch do
                 %i.fa.fa-trash.color
             .list-ui{style: "list-style:none;"}
-              = link_to edit_prototype_comment_path(prototype_id: params[:id], id: text.id) do
+              = link_to edit_prototype_comment_path(text) do
                 %i.fa.fa-edit.color
   .form#new_comment.form_inline
 
