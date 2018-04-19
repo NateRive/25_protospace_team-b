@@ -28,7 +28,7 @@ class PrototypesController < ApplicationController
       @like = false
     end
     @likes_number = Like.where(prototype_id: params[:id]).count
-    @comments = Comment.order('created_at Asc')
+    @comments = Comment.where("prototype_id = ?", params[:id]).order('created_at Asc')
     @comment = Comment.new
   end
 
