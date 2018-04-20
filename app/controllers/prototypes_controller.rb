@@ -20,7 +20,15 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @comments = Comment.order('created_at Asc')
+    @like = Like.find_by("user_id = ? and prototype_id = ?", current_user.id, params[:id])
+    if @like.present?
+      @like_id = @like.id
+      @like = true
+    else
+      @like = false
+    end
+    @likes_number = Like.where(prototype_id: params[:id]).count
+    @comments = Comment.where("prototype_id = ?", params[:id]).order('created_at Asc')
     @comment = Comment.new
   end
 

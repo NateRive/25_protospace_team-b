@@ -347,7 +347,21 @@ body {
         font-weight: bold;
       }
     }
+    .likes-box {
+      text-align: right;
+      #like-button {
+        height: 62px;
+        padding: 20px;
+        .like-clicked {
+          color: red;
+        }
+      }
+    }
   }
+
+
+
+
 
   .proto-description {
     padding: 20px 0 10px;
@@ -421,7 +435,8 @@ body {
 
   .cover-image-upload {
     background: image-url("noimage-big.png") #fff no-repeat center center;
-    height: 500px;
+    height: 500px; 
+    width:690px;
     position: relative;
     margin-bottom: 20px;
 
@@ -445,6 +460,7 @@ body {
     .image-upload {
       background: image-url("noimage.png") #fff no-repeat center center;
       height: 200px;
+      max-width: 100%;
       position: relative;
 
       input {
@@ -618,6 +634,23 @@ body {
   font-weight: 200;
 }
 
+.media {
+  display: flex;
+  &-body {
+  }
+}
+
+.list-ui {
+  float: right;
+  padding-left: 10px;
+}
+
+.color {
+  font-size: 16px;
+  line-height: 100%;
+  color: gray;
+}
+
 .contents_delete {
   padding: 20px 0 0 40px;
 }
@@ -627,10 +660,6 @@ body {
   padding-right: 30px;
 }
 
-.color {
-  color: darkgray;
-
-}
 
 /* -- flash messages ------------------------------------ */
 .alert {

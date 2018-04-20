@@ -38,9 +38,9 @@ $(function(){
         } else {
           $preview.append($('<img>').attr({
                     src: e.target.result,
-                    width: "660px",
+                    width: "100%",
                     height: "200px",
-                     class: "preview",
+                    class: "preview",
                     title: file.name
                 }));
         }
