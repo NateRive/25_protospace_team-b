@@ -59,12 +59,21 @@
               = text.user.name
             %p
               = text.content
-            -# .list-ui{style: "list-style:none;"}
-            -#   = link_to prototype_comment_path(text), method: :patch do
-            -#     %i.fa.fa-trash.color
-            -# .list-ui{style: "list-style:none;"}
-            -#   = link_to edit_prototype_comment_path(text) do
-            -#     %i.fa.fa-edit.color
+            .list-ui{style: "list-style:none;"}
+              = link_to "/prototypes/#{@prototype.id}/comments/#{text.id}" , method: :delete, remote: true do
+                %i.fa.fa-trash.color
+            .list-ui{style: "list-style:none;"}
+              = link_to   do
+                %i.fa.fa-edit.color{ data: {url: "/prototypes/#{@prototype.id}/comments/#{text.id}" }}
+  #modal-main
+    .destroy
+      %i.fa.fa-times{"aria-hidden" => "true"}
+    = form_tag (prototypes_path) , method: :patch do
+      %p#modal-main__group-name
+      %p 新しいコメントを入力してください
+      = text_field_tag :content
+      = submit_tag "送信"
+
   .form#new_comment.form_inline
     - if user_signed_in?
       %h4

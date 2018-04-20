@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
-
   def create
     @comment = Comment.create(comment_params)
     @group = Prototype.find(params[:prototype_id])
@@ -18,18 +17,22 @@ class CommentsController < ApplicationController
   end
 
   def update
+    @group = Prototype.find(params[:prototype_id])
     @comment.update(comment_params) if @comment.user_id == current_user.id
     respond_to do |format|
-    format.html { redirect_to prototype_path(id: current_user.id)  }
+    format.html { redirect_to prototype_path(@group)  }
     format.json
     end
   end
 
   def destroy
+    @prototype = Prototype.find(params[:prototype_id])
     @comment.destroy if @comment.user.id == current_user.id
-    respond_to do |format|
-    format.html { redirect_to prototype_path(id: current_user.id)  }
-    format.json
+    if @comment.destroy
+      respond_to do |format|
+      format.html { redirect_to prototype_path(@prototype)  }
+      format.json { head :no_content }
+      end
     end
   end
 
