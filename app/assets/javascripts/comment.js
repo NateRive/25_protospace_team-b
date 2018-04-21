@@ -60,7 +60,9 @@ $(function(){
 
 
 $("#comment_list").on("click", ".fa-trash", function(e) {
+    // e.stopPropagation();
     e.preventDefault();
+    console.log("a");
     var url = $(this).parent().attr("href");
     var deleteTarget = $(this).closest(".media");
     $.ajax({
@@ -70,6 +72,10 @@ $("#comment_list").on("click", ".fa-trash", function(e) {
       dataType: "json"
     })
     .done(function(data) {
+      if (data) {
+        alert(data.text);
+        return false;
+      }
       deleteTarget.remove();
     })
     .fail(function(data) {

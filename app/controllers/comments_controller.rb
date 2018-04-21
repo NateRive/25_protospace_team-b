@@ -25,13 +25,32 @@ class CommentsController < ApplicationController
     end
   end
 
+  # def destroy
+  #   @prototype = Prototype.find(params[:prototype_id])
+  #   if @comment.user.id == current_user.id
+  #     @comment.destroy
+  #   end
+  #   if @comment.destroy
+  #     respond_to do |format|
+  #     format.html { redirect_to prototype_path(@prototype)  }
+  #     format.json { head :no_content }
+  #     end
+  #   else
+  #     format.json
+  #   end
+  # end
+
   def destroy
     @prototype = Prototype.find(params[:prototype_id])
-    @comment.destroy if @comment.user.id == current_user.id
-    if @comment.destroy
+    if @comment.user.id == current_user.id
+      @comment.destroy
       respond_to do |format|
       format.html { redirect_to prototype_path(@prototype)  }
       format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.json
       end
     end
   end
